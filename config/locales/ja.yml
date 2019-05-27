@@ -9,11 +9,11 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       task: タスク
-    atributes:
+    attributes:
       task:
       id: ID
       name: 名称
-      dexcription: 詳しい説明
+      description: 詳しい説明
       created_at: 登録日時
       updated_at: 更新日時
   date:
