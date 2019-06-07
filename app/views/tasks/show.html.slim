@@ -5,23 +5,21 @@ h1 タスクの詳細
 table.table.table-hover
   tbody
     tr
-      / th= I18n.t("activerecord.attributes.id", :id)
       th= Task.human_attribute_name(:id)
       td= @task.id
     tr
-      / th= I18n.t("activerecord.attributes.name", :name)
       th= Task.human_attribute_name(:name)
       td= @task.name
     tr
-      / th= I18n.t("activerecord.attributes.description", :description)
       th= Task.human_attribute_name(:description)
       td= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
-      / th= I18n.t("activerecord.attributes.created_at", :created_at)
+      th= Task.human_attribute_name(:image)
+      td= image_tag @task.image if @task.image.attached?
+    tr
       th= Task.human_attribute_name(:created_at)
       td= @task.created_at
     tr
-      / th= I18n.t("activerecord.attributes.updated_at", :updated_at)
       th= Task.human_attribute_name(:updated_at)
       td= @task.updated_at
 
