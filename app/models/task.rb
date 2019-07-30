@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  has_one_attached :image
   # before_validation :set_nameless_name
   def self.ransackable_attributes(auth_object = nil)
     %w[name created_at]
