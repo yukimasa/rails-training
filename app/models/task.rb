@@ -1,6 +1,20 @@
 class Task < ApplicationRecord
   has_one_attached :image
   # before_validation :set_nameless_name
+
+  def self.csv_attributes
+    ["name", "description", "created_at", "update_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(header: true) do |csv|
+      csv << csv_attributes
+      all.each do |task|
+        csv << csv_attributes.map {|attr| task.send(attr)}
+      end
+    end
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     %w[name created_at]
   end
